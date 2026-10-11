@@ -19,6 +19,7 @@ import com.llvad.virtue.data.*
 import com.llvad.virtue.ui.*
 import com.llvad.virtue.ui.components.*
 import com.llvad.virtue.ui.theme.*
+import kotlinx.coroutines.launch
 import androidx.compose.material.icons.outlined.Image
 
 // Açılış (splash), ilk açılış uyarısı ve ayarlar ekranları
@@ -60,18 +61,58 @@ fun OnboardingScreen(onAccept: () -> Unit, onExit: () -> Unit) {
     }
 }
 
-/** Ayarlar: uygulama adı, sürüm, uzman karakteri ve yasal uyarı */
+/** Ayarlar: uygulama adı, sürüm, uzman karakteri, bildirimler ve yasal uyarı */
 @Composable
-fun SettingsScreen(onAbout: () -> Unit = {}) {
-    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp)) {
-        SettingRow(stringResource(R.string.settings_app_name), stringResource(R.string.app_name))
-        SettingRow(stringResource(R.string.settings_version), "0.1.0")
-        SettingRow(stringResource(R.string.settings_expert), stringResource(R.string.expert_name) + " — " + stringResource(R.string.expert_role))
-        OutlinedButton(onClick = onAbout, modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)) { Text(stringResource(R.string.about_title)) }
-        SectionTitle(stringResource(R.string.settings_disclaimer))
-        Text(stringResource(R.string.onboarding_body), style = MaterialTheme.typography.bodyMedium)
-        Spacer(Modifier.height(12.dp))
-        RiskDisclaimer()
+fun SettingsScreen(onAbout: () -> Unit = {}, vm: SettingsViewModel = viewModel()) {
+    val st by vm.settings.collectAsStateWithLifecycle()
+    var email by rememberSaveable(st.email) { mutableStateOf(st.email) }
+    val valid = isValidEmail(email)
+    val snackbar = remember { SnackbarHostState() }
+    val scope = rememberCoroutineScope()
+    val savedMsg = stringResource(R.string.notif_saved)
+    val subject = stringResource(R.string.notif_test_subject)
+    val body = stringResource(R.string.notif_test_body)
+    val simulated = stringResource(R.string.notif_simulated)
+    Box(Modifier.fillMaxSize()) {
+        Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp)) {
+            SettingRow(stringResource(R.string.settings_app_name), stringResource(R.string.app_name))
+            SettingRow(stringResource(R.string.settings_version), com.llvad.virtue.AppConfig.VERSION_NAME)
+            SettingRow(stringResource(R.string.settings_expert), stringResource(R.string.expert_name) + " — " + stringResource(R.string.expert_role))
+            OutlinedButton(onClick = onAbout, modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)) { Text(stringResource(R.string.about_title)) }
+
+            SectionTitle(stringResource(R.string.notif_title))
+            OutlinedTextField(
+                value = email, onValueChange = { email = it }, singleLine = true,
+                label = { Text(stringResource(R.string.notif_email)) },
+                isError = !valid,
+                supportingText = { if (!valid) Text(stringResource(R.string.notif_email_invalid)) },
+                keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(keyboardType = androidx.compose.ui.text.input.KeyboardType.Email),
+                modifier = Modifier.fillMaxWidth()
+            )
+            OutlinedButton(enabled = valid && email.trim() != st.email, onClick = {
+                vm.saveEmail(email); scope.launch { snackbar.showSnackbar(savedMsg) }
+            }) { Text(stringResource(R.string.notif_save)) }
+            ToggleRow(stringResource(R.string.notif_daily), st.dailySummary, vm::setDaily)
+            ToggleRow(stringResource(R.string.notif_advice), st.newAdvice, vm::setAdvice)
+            ToggleRow(stringResource(R.string.notif_risk), st.riskAlert, vm::setRisk)
+            OutlinedButton(onClick = {
+                vm.sendTest(subject, body) { to -> scope.launch { snackbar.showSnackbar(simulated.format(to)) } }
+            }, modifier = Modifier.fillMaxWidth()) { Text(stringResource(R.string.notif_test)) }
+
+            SectionTitle(stringResource(R.string.settings_disclaimer))
+            Text(stringResource(R.string.onboarding_body), style = MaterialTheme.typography.bodyMedium)
+            Spacer(Modifier.height(12.dp))
+            RiskDisclaimer()
+        }
+        SnackbarHost(snackbar, Modifier.align(Alignment.BottomCenter))
+    }
+}
+
+@Composable
+private fun ToggleRow(label: String, checked: Boolean, onChange: (Boolean) -> Unit) {
+    Row(Modifier.fillMaxWidth().padding(vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+        Text(label, Modifier.weight(1f))
+        Switch(checked = checked, onCheckedChange = onChange)
     }
 }
 

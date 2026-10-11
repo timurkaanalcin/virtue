@@ -7,7 +7,7 @@ VIRTUE, kurgusal yatırım uzmanı karakteri **Kaan Erdem** ile yatırım kavram
 ## Özellikler
 - Açılış ekranı (splash) ve ilk açılışta onaylanması gereken yasal uyarı (önceden işaretli seçenek yok, nötr düğmeler)
 - Ana Sayfa, Portföy (toplam değer, günlük değişim, dağılım, Canvas grafik), Piyasa, Tavsiyeler ("Kaan Erdem'in görüşü" kartları: risk, gerekçe, vade, olumlu/olumsuz senaryo, uyarı), Asistan (kural tabanlı yanıtlar, kalıcı uyarı)
-- Ayarlar ve Hakkımda (Kaan Erdem biyografisi) ekranları
+- Ayarlar (bildirim e-postası, bildirim tercihleri, simüle test e-postası; DataStore) ve Hakkımda (Kaan Erdem biyografisi) ekranları
 - Ağ izni yok, API anahtarı yok; `InvestmentRepository` arayüzü + `FakeInvestmentRepository`
 - Kotlin, Jetpack Compose, Material 3, Navigation Compose, MVVM (ViewModel + StateFlow), minSdk 26
 
@@ -20,16 +20,16 @@ virtue/
 ├── build.gradle.kts, settings.gradle.kts, gradle.properties
 ├── gradle/libs.versions.toml, gradle/wrapper/
 ├── gradlew, gradlew.bat
-├── docs/FOTOGRAFLAR.md
+├── docs/FOTOGRAFLAR.md, docs/BIR_NOT.md
 └── app/
     ├── build.gradle.kts
     └── src/main/
         ├── AndroidManifest.xml
         ├── res/values/strings.xml, res/drawable/, res/mipmap-anydpi-v26/
         └── java/com/llvad/virtue/
-            ├── MainActivity.kt
+            ├── MainActivity.kt, AppConfig.kt
             ├── navigation/VirtueApp.kt
-            ├── data/ (Models.kt, Gallery.kt, InvestmentRepository.kt, FakeInvestmentRepository.kt)
+            ├── data/ (Models.kt, Gallery.kt, NotificationSettings.kt, InvestmentRepository.kt, FakeInvestmentRepository.kt)
             └── ui/
                 ├── ViewModels.kt
                 ├── theme/Theme.kt

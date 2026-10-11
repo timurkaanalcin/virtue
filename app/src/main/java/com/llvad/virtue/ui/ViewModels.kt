@@ -9,6 +9,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
+import androidx.lifecycle.viewModelScope
 
 // MVVM katmanı: her ekran durumunu StateFlow ile sunar
 
@@ -50,5 +54,24 @@ class AssistantViewModel(private val repo: InvestmentRepository = FakeInvestment
     fun send(text: String) {
         if (text.isBlank()) return
         _messages.update { it + ChatMessage(text.trim(), true) + ChatMessage(repo.reply(text), false) }
+    }
+}
+
+/** Ayarlar: bildirim tercihleri (DataStore) ve sahte test e-postası */
+class SettingsViewModel(app: Application) : AndroidViewModel(app) {
+    private val store = NotificationSettingsStore(app)
+    private val sender: EmailSender = MockEmailSender()
+    val settings: StateFlow<NotificationSettings> =
+        store.settings.stateIn(viewModelScope, SharingStarted.Eagerly, NotificationSettings())
+
+    fun saveEmail(v: String) = viewModelScope.launch { store.setEmail(v.trim()) }
+    fun setDaily(v: Boolean) = viewModelScope.launch { store.setDaily(v) }
+    fun setAdvice(v: Boolean) = viewModelScope.launch { store.setAdvice(v) }
+    fun setRisk(v: Boolean) = viewModelScope.launch { store.setRisk(v) }
+
+    /** Test e-postasını sahte göndericiyle "gönderir" ve sonucu bildirir */
+    fun sendTest(subject: String, body: String, onDone: (String) -> Unit) = viewModelScope.launch {
+        val to = settings.value.email
+        if (sender.send(to, subject, body)) onDone(to)
     }
 }
