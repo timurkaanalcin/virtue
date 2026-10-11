@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VIRTUE</string>
+    <string name="nav_home">Ana Sayfa</string>
+    <string name="nav_portfolio">Portföy</string>
+    <string name="nav_market">Piyasa</string>
+    <string name="nav_advice">Tavsiyeler</string>
+    <string name="nav_assistant">Asistan</string>
+
+    <string name="disclaimer_short">Bu içerik yatırım tavsiyesi değildir</string>
+    <string name="risk_warning">Risk uyarısı: Yatırımlar değer kaybedebilir; anaparanızın bir kısmını veya tamamını kaybedebilirsiniz. Geçmiş performans gelecekteki sonuçların göstergesi değildir. Kararlarınızı kendi durumunuza göre ve gerekirse lisanslı bir danışmanla vererek alın.</string>
+    <string name="mock_notice">Gösterilen tüm fiyatlar, haberler ve öneriler sahte (örnek) verilerdir.</string>
+
+    <string name="onboarding_title">Başlamadan önce</string>
+    <string name="onboarding_body">VIRTUE eğitim ve prototip amaçlı bir uygulamadır. Gerçek piyasa verisi kullanmaz ve kişisel yatırım tavsiyesi vermez.\n\nUygulamadaki fiyatlar, haberler ve öneri kartları tamamen örnek amaçlı uydurma verilerdir. Her senaryonun olumsuz sonuçları da olabilir; hiçbir getiri garanti değildir.\n\nGerçek bir yatırım kararı vermeden önce lisanslı bir yatırım danışmanına başvurun.</string>
+    <string name="onboarding_checkbox">Okudum ve anladım</string>
+    <string name="onboarding_continue">Devam et</string>
+    <string name="onboarding_exit">Uygulamadan çık</string>
+
+    <string name="home_greeting">Hoş geldiniz</string>
+    <string name="home_intro">Bu uygulama, yatırım kavramlarını sahte verilerle keşfetmeniz için tasarlanmış bir prototiptir.</string>
+    <string name="home_portfolio_card">Örnek portföy değeri</string>
+    <string name="home_latest_news">Son piyasa özetleri</string>
+    <string name="home_go_advice">Örnek tavsiye kartlarını incele</string>
+    <string name="home_go_assistant">Asistana soru sor</string>
+
+    <string name="portfolio_title">Portföy özeti</string>
+    <string name="portfolio_total">Toplam değer</string>
+    <string name="portfolio_daily">Günlük değişim</string>
+    <string name="portfolio_allocation">Varlık dağılımı</string>
+    <string name="portfolio_chart">Son 30 gün (örnek)</string>
+
+    <string name="market_title">Piyasa özeti</string>
+    <string name="market_prices">Örnek fiyatlar</string>
+    <string name="market_news">Haberler</string>
+
+    <string name="advice_title">Örnek tavsiye kartları</string>
+    <string name="advice_risk">Risk seviyesi</string>
+    <string name="advice_horizon">Vade</string>
+    <string name="advice_rationale">Gerekçe</string>
+    <string name="advice_upside">Olumlu senaryo</string>
+    <string name="advice_downside">Olumsuz senaryo</string>
+    <string name="risk_low">Düşük</string>
+    <string name="risk_medium">Orta</string>
+    <string name="risk_high">Yüksek</string>
+
+    <string name="assistant_title">Asistan</string>
+    <string name="assistant_hint">Bir soru yazın…</string>
+    <string name="assistant_send">Gönder</string>
+    <string name="assistant_welcome">Merhaba, ben Kaan Erdem! Yatırım kavramları hakkında genel bilgi verebilirim. Örneğin "risk", "çeşitlendirme", "altın", "hisse" veya "enflasyon" hakkında sorabilirsiniz.</string>
+    <string name="expert_name">Kaan Erdem</string>
+    <string name="expert_role">Sanal yatırım uzmanı karakteri (kurgusal)</string>
+    <string name="advice_expert_view">Kaan Erdem\'in görüşü</string>
+    <string name="assistant_expert_subtitle">Kaan Erdem ile sohbet · kural tabanlı örnek yanıtlar</string>
+    <string name="splash_tagline">Kaan Erdem ile yatırım kavramlarını keşfedin</string>
+    <string name="splash_prototype">Eğitim amaçlı prototip</string>
+    <string name="nav_settings">Ayarlar</string>
+    <string name="settings_app_name">Uygulama adı</string>
+    <string name="settings_version">Sürüm</string>
+    <string name="settings_expert">Uzman karakteri</string>
+    <string name="settings_disclaimer">Yasal uyarı</string>
+    <string name="about_title">Hakkımda</string>
+    <string name="about_initials">KE</string>
+    <string name="about_fictional">Kurgusal karakter — prototip/eğitim amaçlıdır.</string>
+    <string name="about_risk_note">Risk Uyarısı: Bu uygulama yatırım tavsiyesi vermez.</string>
+    <string name="about_h_life">Yaşam</string>
+    <string name="about_h_edu">Eğitim</string>
+    <string name="about_h_career">Kariyer</string>
+    <string name="about_h_phil">Felsefe</string>
+    <string name="about_gallery">Galeri</string>
+    <string name="about_gallery_note">Fotoğraflar henüz eklenmedi; kutular yer tutucudur.</string>
+    <string name="bio_yasam">Kaan Erdem, 15 Mart 1986\'da İstanbul\'da doğdu. Çocukluğu Cihangir\'in yokuşlu sokaklarında, emekli bir öğretmen olan dedesinin gazete sayfalarındaki fiyat tablolarını birlikte okuduğu sabahlarla geçti. Dedesi ona her gün bir şirketin adını söyler, ertesi gün o şirketi neden seçtiğini sorardı; Kaan bu oyundan merak etmeyi ve sorgulamayı öğrendi.\n\nGalatasaray Lisesi yıllarında münazara kulübünün en sessiz ama en hazırlıklı üyesiydi. Bir turnuvada, kazanacağı tarafı değil savunması zor olan tarafı seçti ve kaybetti; hocası ona "kaybettin ama karşı tarafı herkesten iyi anladın" dedi. Bu cümle, ileride her yatırım fikrine önce olumsuz senaryodan bakma alışkanlığının tohumu oldu.</string>
+    <string name="bio_egitim">Galatasaray Lisesi\'nden mezun oldu, ardından İstanbul Üniversitesi Hukuk Fakültesi\'ni bitirdi. Fakültede ikinci yılında arkadaşlarıyla küçük bir borsa kulübü kurdu; haftalık toplantılarda şirket bilançolarını hukuki sözleşmeler gibi satır satır okuyorlardı. Bir şirket iflas davasını incelerken, hukukun sorunları sonradan çözdüğünü, finansın ise riskleri baştan fiyatlamaya çalıştığını fark etti; bu fark onu finansa yöneltti.\n\nYüksek lisansını Londra School of Economics\'te Financial Economics alanında yaptı. Tezinde, gelişmekte olan piyasalarda yatırımcı davranışının kriz dönemlerinde nasıl sürü psikolojisine dönüştüğünü inceledi. Danışmanının "modelin ne zaman yanıldığını bilmiyorsan, modelin yok demektir" uyarısını hâlâ masasındaki bir not kâğıdında saklar.</string>
+    <string name="bio_kariyer">Kariyerine 2009\'da JPMorgan\'ın Londra yatırım bankacılığı kolunda analist olarak başladı. Finansal krizin hemen ardından, uzun geceler boyunca yeniden yapılandırma projelerinde çalışan bir ekibin en genç üyesiydi. İlk büyük projesinde hazırladığı iyimser bir tabloyu kıdemli bir yönetici tek bir soruyla çökertti: "Her şey ters giderse ne olur?" O günden sonra her analizine bir olumsuz senaryo sayfası ekledi.\n\n2012\'de Goldman Sachs\'a geçti ve hisse senedi araştırma ekibinde kıdemli analist oldu. Sektör raporları yazarken popüler bir görüşe karşı temkinli bir değerlendirme yayımladı; kısa vadede eleştirildi, uzun vadede temkinin değerini gördü. Buradan öğrendiği ders, doğru olmanın çoğu zaman sabır ve açık gerekçe gerektirdiğiydi.\n\n2015\'te Singapur\'a taşındı ve Temasek\'in iç fon yönetim biriminde portföy yöneticisi olarak çalıştı. Bir dönem, kâğıt üzerinde birbirinden bağımsız görünen yatırımların aynı küresel şoka birlikte tepki verdiğini gördü. Bu deneyim ona riskin tek tek varlıklarda değil, aralarındaki görünmeyen bağlarda saklandığını öğretti.\n\n2018\'de kendi fonunu kurdu: Erdem Capital Management. Amacı, büyük kurumlarda öğrendiği disiplini daha şeffaf ve sade bir yapıyla uygulamaktı. En zor yılı, piyasaların sert dalgalandığı ve yatırımcılarla her hafta açık mektuplar paylaştığı dönemdi; o yıl kazanç kadar iletişimin de bir sorumluluk olduğunu gördü. Fon beş yıl üst üste pozitif getiriyle kapandı ve 2023\'te bilinçli olarak tasfiye edildi. Kaan, fonun büyüdükçe kendi ilkelerinden uzaklaşma riskini fark ettiğini; büyümek yerine sözünü tutarak kapanmayı tercih ettiğini anlatır.</string>
+    <string name="bio_felsefe">Şimdi VIRTUE üzerinden bilgi ve eğitim odaklı çalışıyor. Hedefi, karmaşık finansal ürünleri sadeleştirip riski görünür kılmak. Ona göre iyi bir yatırım konuşması önce "ne kaybedebilirim?" sorusuyla başlar, kesin kazanç vaadiyle değil.\n\nVIRTUE\'da her fikri olumlu ve olumsuz yönleriyle birlikte anlatır; kimseye ne alıp satacağını söylemez, nasıl düşünebileceğini gösterir. Sakin olmayı, acele etmemeyi ve kararları kişinin kendi hayatına göre vermesini savunur.</string>
+</resources>
